@@ -14,7 +14,7 @@ const Layout = () => {
             <header className={styles.header} role={"banner"}>
                 <div className={styles.headerContainer}>
                     <Link to="/" className={styles.headerTitleContainer}>
-                        <h3 className={styles.headerTitle}>UWM CSI Chat Engine</h3>
+                        <h3 className={styles.headerTitle}>UWM CSI Chat Engine (GPT-4-turbo-updated-dataset)</h3>
                     </Link>
                     <nav>
                         <ul className={styles.headerNavList}>
