@@ -6,6 +6,8 @@
 
 Project details are provided in the [Project documentation](Documentation.md).
 
+The deployed applications can be viewed on [UWM CSI Chat Engine (GPT-4-turbo-updated-dataset) ](https://tinyurl.com/gpt4bot) and [UWM CSI Chat Engine (GPT-3.5-turbo-updated-dataset) ](https://tinyurl.com/gpt35bot).
+
 The code is based on [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo). 
 
 ** Instructions to run the project files **
