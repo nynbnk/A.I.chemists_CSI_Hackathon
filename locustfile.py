@@ -18,10 +18,10 @@ class ChatUser(HttpUser):
                     {
                         "content": random.choice(
                             [
-                                "What is included in my Northwind Health Plus plan that is not in standard?",
-                                "What does a Product Manager do?",
-                                "What happens in a performance review?",
-                                "Whats your whistleblower policy?",
+                                "How do I reset the calibration on the test bed?",
+                                "What does error code E-01 on the test bed mean?",
+                                "Where can I find the maintenance schedule in the handbook?",
+                                "How often should I perform a diagnostic check on the test bed?",
                             ]
                         ),
                         "role": "user",
@@ -33,7 +33,7 @@ class ChatUser(HttpUser):
                         "semantic_ranker": True,
                         "semantic_captions": False,
                         "top": 3,
-                        "suggest_followup_questions": False,
+                        "suggest_followup_questions": True,
                     },
                 },
             },
@@ -43,12 +43,12 @@ class ChatUser(HttpUser):
             "/chat",
             json={
                 "messages": [
-                    {"content": "What happens in a performance review?", "role": "user"},
+                    {"content": "What does error code E-01 on the test bed mean?", "role": "user"},
                     {
-                        "content": "During a performance review, employees will receive feedback on their performance over the past year, including both successes and areas for improvement. The feedback will be provided by the employee's supervisor and is intended to help the employee develop and grow in their role [employee_handbook-3.pdf]. The review is a two-way dialogue between the employee and their manager, so employees are encouraged to be honest and open during the process [employee_handbook-3.pdf]. The employee will also have the opportunity to discuss their goals and objectives for the upcoming year [employee_handbook-3.pdf]. A written summary of the performance review will be provided to the employee, which will include a rating of their performance, feedback, and goals and objectives for the upcoming year [employee_handbook-3.pdf].",
+                        "content": "Error code E-01 indicates a calibration issue. It is recommended to recalibrate the machine using the settings provided in the manual [manual1.txt].",
                         "role": "assistant",
                     },
-                    {"content": "Does my plan cover eye exams?", "role": "user"},
+                    {"content": "How can I access the calibration settings?", "role": "user"},
                 ],
                 "context": {
                     "overrides": {
@@ -56,7 +56,7 @@ class ChatUser(HttpUser):
                         "semantic_ranker": True,
                         "semantic_captions": False,
                         "top": 3,
-                        "suggest_followup_questions": False,
+                        "suggest_followup_questions": True,
                     },
                 },
             },

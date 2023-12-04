@@ -43,7 +43,7 @@ urlFragment: azure-search-openai-demo
 - [Using the app](#using-the-app)
 - [Running locally](#running-locally)
 - [Monitoring with Application Insights](#monitoring-with-application-insights)
-- [Customizing the UI and data](#customizing-the-ui-and-data)
+- [izing the UI and data](#customizing-the-ui-and-data)
 - [Productionizing](#productionizing)
 - [Resources](#resources)
   - [FAQ](#faq)

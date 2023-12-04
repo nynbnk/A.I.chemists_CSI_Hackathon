@@ -27,36 +27,46 @@ class ChatReadRetrieveReadApproach(Approach):
     then uses Azure AI Search to retrieve relevant documents, and then sends the conversation history,
     original user question, and search results to OpenAI to generate a response.
     """
-    system_message_chat_conversation = """Assistant helps the company employees with their healthcare plan questions, and questions about the employee handbook. Be brief in your answers.
-Answer ONLY with the facts listed in the list of sources below. If there isn't enough information below, say you don't know. Do not generate answers that don't use the sources below. If asking a clarifying question to the user would help, ask the question.
-For tabular information return it as an html table. Do not return markdown format. If the question is not in English, answer in the language used in the question.
-Each source has a name followed by colon and the actual information, always include the source name for each fact you use in the response. Use square brackets to reference the source, for example [info1.txt]. Don't combine sources, list each source separately, for example [info1.txt][info2.pdf].
+
+    system_message_chat_conversation = """
+Assistant helps the general public and technicians understand how to operate a manufacturing test bed, and answers questions based on operating manuals and handbooks. Provide elaborate explanations that are clear and easy to understand, even for non-technical individuals. 
+Answer ONLY with the facts listed in the sources provided. If there isn't enough information in the sources, say you don't know. Do not generate answers that don't use the sources below. If asking a clarifying question to the user would help, ask the question.
+For tabular information, return it as an HTML table. Do not return markdown format. If the question is not in English, answer in the language used in the question.
+Each source has a name followed by colon and the actual information. Always include the source name for each fact you use in the response. Use square brackets to reference the source, for example [manual1.txt]. Don't combine sources; list each source separately, for example [manual1.txt][handbook2.pdf].
 {follow_up_questions_prompt}
 {injected_prompt}
 """
-    follow_up_questions_prompt_content = """Generate 3 very brief follow-up questions that the user would likely ask next.
-Enclose the follow-up questions in double angle brackets. Example:
-<<Are there exclusions for prescriptions?>>
-<<Which pharmacies can be ordered from?>>
-<<What is the limit for over-the-counter medication?>>
-Do no repeat questions that have already been asked.
-Make sure the last question ends with ">>"."""
 
-    query_prompt_template = """Below is a history of the conversation so far, and a new question asked by the user that needs to be answered by searching in a knowledge base about employee healthcare plans and the employee handbook.
-You have access to an Azure AI Search index with 100's of documents.
+    follow_up_questions_prompt_content = """
+Generate 3 very brief follow-up questions that the user might ask next, relevant to operating a manufacturing test bed or inquiries based on manuals and handbooks.
+Enclose the follow-up questions in double angle brackets. Example:
+<<What safety precautions should I follow when operating the machine?>>
+<<Can you explain the error code E-01 on the test bed?>>
+<<Where can I find maintenance procedures in the handbook?>>
+Do not repeat questions that have already been asked.
+Make sure the last question ends with ">>".
+"""
+
+    query_prompt_template = """Below is a history of the conversation so far, and a new question asked by the user that needs to be answered by searching in a knowledge base about manufacturing test bed operational manual and handbook.
+You have access to an Azure AI Search index with multiple documents.
 Generate a search query based on the conversation and the new question.
 Do not include cited source filenames and document names e.g info.txt or doc.pdf in the search query terms.
 Do not include any text inside [] or <<>> in the search query terms.
 Do not include any special characters like '+'.
 If the question is not in English, translate the question to English before generating the search query.
 If you cannot generate a search query, return just the number 0.
-"""
+"""   
+
     query_prompt_few_shots = [
-        {"role": USER, "content": "What are my health plans?"},
-        {"role": ASSISTANT, "content": "Show available health plans"},
-        {"role": USER, "content": "does my plan cover cardio?"},
-        {"role": ASSISTANT, "content": "Health plan cardio coverage"},
-    ]
+    {"role": USER, "content": "How do I start the test bed machine?"},
+    {"role": ASSISTANT, "content": "Starting procedures for test bed machine"},
+    {"role": USER, "content": "What does error code E-01 indicate?"},
+    {"role": ASSISTANT, "content": "Meaning of error code E-01 on test bed"},
+    {"role": USER, "content": "Where can I find maintenance guidelines in the handbook?"},
+    {"role": ASSISTANT, "content": "Maintenance guidelines in the test bed handbook"},
+    {"role": USER, "content": "Are there any specific safety measures for operating the test bed?"},
+    {"role": ASSISTANT, "content": "Safety measures for operating test bed"}
+]
 
     def __init__(
         self,
@@ -108,7 +118,7 @@ If you cannot generate a search query, return just the number 0.
                     "properties": {
                         "search_query": {
                             "type": "string",
-                            "description": "Query string to retrieve documents from azure search eg: 'Health care plan'",
+                            "description": "Query string to retrieve documents from azure search eg: 'CSI test bed'",
                         }
                     },
                     "required": ["search_query"],

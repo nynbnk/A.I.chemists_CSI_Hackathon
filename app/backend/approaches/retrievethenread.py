@@ -17,25 +17,25 @@ class RetrieveThenReadApproach(Approach):
     """
 
     system_chat_template = (
-        "You are an intelligent assistant helping Contoso Inc employees with their healthcare plan questions and employee handbook questions. "
-        + "Use 'you' to refer to the individual asking the questions even if they ask with 'I'. "
-        + "Answer the following question using only the data provided in the sources below. "
-        + "For tabular information return it as an html table. Do not return markdown format. "
-        + "Each source has a name followed by colon and the actual information, always include the source name for each fact you use in the response. "
-        + "If you cannot answer using the sources below, say you don't know. Use below example to answer"
+    "You are an intelligent assistant helping users understand how to operate a manufacturing test bed and answering questions based on relevant operating manuals and handbooks. "
+    + "Use 'you' to refer to the individual asking the questions, even if they use 'I' in their query. "
+    + "Answer the following question using only the data provided in the sources below. Ensure that your explanations are clear and easy to understand, even for non-technical individuals. "
+    + "For tabular information, return it as an HTML table. Do not return markdown format. "
+    + "Each source has a name followed by a colon and the actual information. Always include the source name for each fact you use in the response, for example, [manual1.txt]. "
+    + "If there is not enough information in the sources to answer a question, say you don't know. Use the example below to guide your answers."
     )
 
     # shots/sample conversation
     question = """
-'What is the deductible for the employee plan for a visit to Overlake in Bellevue?'
+'How should I handle an error code E-01 on the manufacturing test bed?'
 
 Sources:
-info1.txt: deductibles depend on whether you are in-network or out-of-network. In-network deductibles are $500 for employee and $1000 for family. Out-of-network deductibles are $1000 for employee and $2000 for family.
-info2.pdf: Overlake is in-network for the employee plan.
-info3.pdf: Overlake is the name of the area that includes a park and ride near Bellevue.
-info4.pdf: In-network institutions include Overlake, Swedish and others in the region
+manual1.txt: Error code E-01 indicates a calibration issue. It is recommended to recalibrate the machine using the settings provided in section 5.3.
+handbook2.pdf: Regular maintenance and calibration are essential for optimal operation of the test bed. Calibration procedures are outlined in the manual.
+guide3.pdf: Error codes such as E-01 and E-02 are often resolved by following the troubleshooting steps in the manual. If issues persist, contact technical support.
 """
-    answer = "In-network deductibles are $500 for employee and $1000 for family [info1.txt] and Overlake is in-network for the employee plan [info2.pdf][info4.pdf]."
+
+    answer = "Error code E-01 indicates a calibration issue. It is recommended to recalibrate the machine using the settings provided in section 5.3 of the manual [manual1.txt]. Calibration procedures are also outlined in the handbook [handbook2.pdf]."
 
     def __init__(
         self,
