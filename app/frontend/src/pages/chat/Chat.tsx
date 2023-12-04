@@ -235,7 +235,7 @@ const Chat = () => {
                 <div className={styles.chatContainer}>
                     {!lastQuestionRef.current ? (
                         <div className={styles.chatEmptyState}>
-                            <img src="https://industrialtalk.com/wp-content/uploads/2021/02/UWM-CSI-4clr-1235-Logo.png" alt="Chat logo" width="100" />
+                            <img src="https://raw.githubusercontent.com/nynbnk/A.I.chemists_CSI_Hackathon/eb32a4cf99b885babe575355696bbd05ac32de6c/app/frontend/src/assets/uwm_csi_logo.png" alt="Chat logo" width="500" />
                             {/* <SparkleFilled fontSize={"120px"} primaryFill={"rgba(115, 118, 225, 1)"} aria-hidden="true" aria-label="Chat logo" /> */}
                             <h1 className={styles.chatEmptyStateTitle}>Virtual Guide to the CSI Advanced Manufacturing Test Bed</h1>
                             <h2 className={styles.chatEmptyStateSubtitle}>Ask anything about CSI or try an example</h2>
