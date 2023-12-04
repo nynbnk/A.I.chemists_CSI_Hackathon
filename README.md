@@ -4,51 +4,125 @@
 
 **Team members**: Tanvir Ahmed (tanvir@uwm.edu), Nayan Banik (nbanik@uwm.edu), Md Tanzil Shahria (mshahria@uwm.edu), and Anisha Tasnim (tasnim@uwm.edu) 
 
-**Project Overview**: The project aims to revolutionize the way individuals, particularly those without a technical background, engage with and understand the UWM CSI advanced manufacturing test bed. The cornerstone of this endeavor is the development of a state-of-the-art intelligent chat engine, designed to function as a virtual guide.
-The primary objective of this innovative chatbot is to demystify the complex operations and cutting-edge technologies that underpin the advanced manufacturing test bed. In an industry characterized by its technical profundity and specialized knowledge, this chat engine stands as a bridge between complex technical information and its simplified, more accessible interpretation. It achieves this by employing advanced artificial intelligence technologies that possess the capability to meticulously extract and process critical information from proprietary operating manuals and detailed technical handbooks. The chatbot then transforms this high-level technical data into easily interpretable everyday language, tailored to be comprehensible to a broad audience.
+Project details are provided in the [Project documentation](Documentation.md).
 
-One of the most significant anticipated impacts of this project lies in its potential to enhance educational understanding across diverse groups. By making complex industrial operations more accessible and easier to comprehend, the chatbot not only serves as an educational tool but also as a catalyst for fostering broader participation in discussions and explorations of industrial innovation. This is particularly valuable in an era where advanced manufacturing is rapidly evolving and where understanding these changes is crucial for a wide range of stakeholders, from students and educators to industry professionals and policymakers.
+The code is based on [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo). 
 
-Furthermore, this project exemplifies the transformative potential of artificial intelligence in bridging knowledge gaps. It highlights how AI can be harnessed to make technical knowledge more inclusive, approachable, and universally accessible. In sectors where complexity and specialized language often serve as barriers to broader engagement and understanding, this chatbot represents a paradigm shift, offering a more democratized approach to learning and engaging with advanced manufacturing technologies. In summary, this not just a technological advancement; it is a step towards redefining how we interact with and understand the complex world of advanced manufacturing. Its impact extends beyond the confines of UWM CSI, setting a precedent for how artificial intelligence can be utilized to make specialized knowledge more accessible and to inspire innovation and participation across a spectrum of audiences.
+** Instructions to run the project files **
 
-**Technical Documentation**: The technical foundation of our project leverages Azure's robust cloud capabilities and OpenAI's advanced language models. Our chatbot is built on the Retrieval-Augmented Generation (RAG) pattern, which combines the strengths of Azure AI Search and Azure OpenAI. Azure AI Search plays a pivotal role in data indexing and retrieval. The chatbot can rapidly access a wide array of information by organizing and indexing detailed user manuals and other technical documents related to the manufacturing test bed. This setup ensures the chatbot retrieves the most relevant and accurate data in response to user inquiries. The code is based on [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo).
+## Azure account requirements
 
-  **Frontend Technologies**
+**IMPORTANT:** In order to deploy and run this project, you'll need:
 
-**React**: React is a JavaScript library for building user interfaces, especially single-page applications. It's known for its efficiency in rendering dynamic content and managing state across components. In this project, React is utilized to create a seamless and interactive user interface. It manages the chatbot's state, handles user interactions, and updates the UI in real time as users engage with the chatbot. React's component-based architecture makes the chatbot's frontend modular and scalable. It enables the development team to reuse components and manage the UI's state more efficiently, leading to a faster and smoother user experience.
+* **Azure account**. If you're new to Azure, [get an Azure account for free](https://azure.microsoft.com/free/cognitive-search/) and you'll get some free Azure credits to get started.
+* **Azure subscription with access enabled for the Azure OpenAI service**. You can request access with [this form](https://aka.ms/oaiapply). If your access request to Azure OpenAI service doesn't match the [acceptance criteria](https://learn.microsoft.com/legal/cognitive-services/openai/limited-access?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext), you can use [OpenAI public API](https://platform.openai.com/docs/api-reference/introduction) instead. Learn [how to switch to an OpenAI instance](#switching-from-an-azure-openai-endpoint-to-an-openai-instance).
+* **Azure account permissions**:
+  * Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [Role Based Access Control Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview), [User Access Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator), or [Owner](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#owner). If you don't have subscription-level permissions, you must be granted [RBAC](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview) for an existing resource group and [deploy to that existing group](#existing-resource-group).
+  * Your Azure account also needs `Microsoft.Resources/deployments/write` permissions on the subscription level.
 
-**Fluent UI**: Fluent UI is a collection of UX frameworks for creating web and mobile applications that share Microsoft's design language. It provides a set of reusable, accessible components that conform to Microsoft’s design standards. Fluent UI components are integrated into the React application to ensure a consistent and familiar look and feel, aligning with Microsoft's design principles. These components are used to build various elements of the chatbot's interface, such as buttons, input fields, and layout structures. By using Fluent UI, the chatbot inherits a professional and polished appearance that is visually appealing and user-friendly. The consistency in design helps in providing a smooth user experience and ensures accessibility standards are met.
+#### Local environment
 
-  **Backend Technologies**
-  
-**Quart**: Quart is an asynchronous Python web framework. It allows developers to build web applications that can handle large numbers of simultaneous connections and data requests efficiently. Quart serves as the backbone of the chatbot's backend. It manages asynchronous tasks, processes user requests, and handles the interactions between the frontend, AI components, and the data storage system. Quart's asynchronous capabilities are essential for a chatbot application where real-time data processing and response generation are crucial. It improves the chatbot's performance by enabling faster handling of concurrent user interactions.
+First install the required tools:
 
-  **AI and Data Handling Technologies**
-  
-**Azure AI Search**: Azure AI Search is a cloud search service with built-in artificial intelligence capabilities. It allows for the indexing and querying of large volumes of data efficiently. Azure AI Search is used to index and retrieve information from the uploaded PDF documents. It powers the chatbot's ability to search through extensive data sets and find relevant information in response to user queries. The use of Azure AI Search enhances the chatbot's functionality in terms of data retrieval and processing. Its AI capabilities allow for more accurate and relevant search results, improving the overall effectiveness of the chatbot.
+* [Azure Developer CLI](https://aka.ms/azure-dev/install)
+* [Python 3.9, 3.10, or 3.11](https://www.python.org/downloads/)
+  * **Important**: Python and the pip package manager must be in the path in Windows for the setup scripts to work.
+  * **Important**: Ensure you can run `python --version` from console. On Ubuntu, you might need to run `sudo apt install python-is-python3` to link `python` to `python3`.
+* [Node.js 14+](https://nodejs.org/en/download/)
+* [Git](https://git-scm.com/downloads)
+* [Powershell 7+ (pwsh)](https://github.com/powershell/powershell) - For Windows users only.
+  * **Important**: Ensure you can run `pwsh.exe` from a PowerShell terminal. If this fails, you likely need to upgrade PowerShell.
 
-**Azure Blob Storage**: Azure Blob Storage is Microsoft's object storage solution for the cloud. It is optimized for storing massive amounts of unstructured data, such as text or binary data. Azure Blob Storage is utilized to store the chatbot's data, primarily the PDF documents that serve as the knowledge base. It ensures that the data is securely and efficiently managed. By using Azure Blob Storage, the chatbot benefits from a high degree of scalability and security in data management. It supports the chatbot's need for a robust and reliable storage solution that can handle large volumes of data.
+Then clone the project code or download as zip and extract to a folder. Inside the project folder, run in the terminal `azd auth login`.
 
-**OpenAI ChatCompletion API**: The OpenAI ChatCompletion API is part of OpenAI's suite of tools that offer advanced natural language processing capabilities. It is designed to generate human-like text based on the input provided. This API is crucial in transforming user queries into enhanced search queries and generating human-like, contextually relevant responses based on the data retrieved from Azure AI Search. The integration of the OpenAI ChatCompletion API brings a high level of sophistication to the chatbot's conversational abilities. It allows the chatbot to understand and respond to queries in a way that is natural and intuitive for users.
+### Deploying from scratch
 
-**Azure OpenAI Service**: The chatbot's intelligence is powered by Azure OpenAI Service, which accesses the gpt-3.5-turbo model. This model is adept at understanding and generating human-like text, enabling the chatbot to provide accurate, contextually relevant, and engaging responses. 
+Execute the following command, if you don't have any pre-existing Azure services and want to start from a fresh deployment.
 
-**System Architecture**: The architecture supports real-time interactions, minimizing latency between query input and response output. Azure AI Search and OpenAI are seamlessly integrated, ensuring a smooth data flow and consistent performance. The chatbot offers a ChatGPT-style interaction, maintaining a natural, engaging conversation flow, with features to track source content and evaluate the trustworthiness of responses. The following diagram is adapted from [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) illustrates the interaction between the user queries, Azure AI Search, OpenAI's response generation, and the chat interface. ![System Architecture ](docs/appcomponents.png)
+1. Run `azd up` - This will provision Azure resources and deploy this sample to those resources, including building the search index based on the files found in the `./data` folder.
+    * **Important**: Beware that the resources created by this command will incur immediate costs, primarily from the AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. You can run `azd down` or delete the resources manually to avoid unnecessary spending.
+    * You will be prompted to select two locations, one for the majority of resources and one for the OpenAI resource, which is currently a short list. That location list is based on the [OpenAI model availability table](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability) and may become outdated as availability changes.
+1. After the application has been successfully deployed you will see a URL printed to the console.  Click that URL to interact with the application in your browser.
 
-**Data Preprocessing Steps**: The data preprocessing involves several steps to ensure the chatbot can efficiently process and retrieve information from the provided PDF documents. The following diagram adapted from [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) illustrates the preprocessing pipelines. ![Preprocessing](docs/diagram_prepdocs.png)
+It will look like the following:
+!['Output from running azd up'](assets/deploy.png)
 
-**Document Upload and Indexing**: PDFs are uploaded to Azure Blob Storage and indexed for easy retrieval.
+> NOTE: It may take 5-10 minutes for the application to be fully deployed. If you see a "Python Developer" welcome screen or an error page, then wait a bit and refresh the page.
 
-**Chunking of PDFs**: To address token limits in OpenAI API and enhance context sensitivity, PDFs are split into smaller chunks using a sliding window approach. This is handled by the scripts/prepdocs.py script.
+### Deploying with existing Azure resources
 
-**Updating Indexes**: The system is designed to check for changes in the documents, avoiding re-uploading unchanged files, thereby optimizing the data ingestion process.
+If you already have existing Azure resources, you can re-use those by setting `azd` environment values.
 
-**Team Contribution**: The team's collaborative effort was pivotal in the successful development of the chatbot. Tanvir, as the team leader, orchestrated the project's overall direction and strategy, focusing on team management, data preprocessing, and contributing significantly to the model training process alongside Nayan. Nayan, as the key person in data training and model preparation, was instrumental in harnessing the capabilities of Azure OpenAI for the chatbot's language processing features. Tanzil played a crucial role in the frontend development, ensuring the chatbot's interface was user-friendly and intuitive, while also managing the project documentation. Anisha, with her focus on Q&A, was central in evaluating and refining the chatbot's performance, ensuring its responses were accurate, clear, and easily understandable. Her contributions were essential in enhancing the chatbot's usability, making it accessible and beneficial for users regardless of their background in manufacturing. 
+#### Existing resource group
 
-**Challenges and Solutions**: In addressing the core challenges of our project, we implemented targeted solutions to enhance the chatbot's functionality. Converting unstructured data into a structured format, spanning various sources such as images and overlapping text, proved to be a multifaceted challenge. In addressing this, our strategy harnessed the power of cutting-edge AI tools, notably OpenAI, Azure AI, complemented by a conscientious infusion of manual intervention. It's worth noting, however, that the Azure OpenAI Service introduces a constraint on tokens, thereby shaping the landscape of our interactions and influencing the extent of our engagement within this innovative realm. The pricing dynamics between GPT-3.5 Turbo and its successor, GPT-4 Turbo, reveal intriguing nuances in language models. For the former, the cost stands at $0.0010 per 1,000 tokens for inputs and a slightly higher $0.0020 per 1,000 tokens for outputs, with the understanding that 1,000 tokens encapsulate approximately 750 words. Transitioning to the latter, GPT-4 Turbo shifts the economic landscape, demanding $0.01 per 1,000 tokens for inputs and a more substantial $0.03 per 1,000 tokens for outputs.
+1. Run `azd env set AZURE_RESOURCE_GROUP {Name of existing resource group}`
+1. Run `azd env set AZURE_LOCATION {Location of existing resource group}`
+
+#### Existing OpenAI resource
+
+##### Azure OpenAI:
+
+1. Run `azd env set AZURE_OPENAI_SERVICE {Name of existing OpenAI service}`
+1. Run `azd env set AZURE_OPENAI_RESOURCE_GROUP {Name of existing resource group that OpenAI service is provisioned to}`
+1. Run `azd env set AZURE_OPENAI_CHATGPT_DEPLOYMENT {Name of existing ChatGPT deployment}`. Only needed if your ChatGPT deployment is not the default 'chat'.
+1. Run `azd env set AZURE_OPENAI_EMB_DEPLOYMENT {Name of existing GPT embedding deployment}`. Only needed if your embeddings deployment is not the default 'embedding'.
+
+When you run `azd up` after and are prompted to select a value for `openAiResourceGroupLocation`, make sure to select the same location as the existing OpenAI resource group.
+
+##### Openai.com OpenAI:
+
+1. Run `azd env set OPENAI_HOST openai`
+2. Run `azd env set OPENAI_ORGANIZATION {Your OpenAI organization}`
+3. Run `azd env set OPENAI_API_KEY {Your OpenAI API key}`
+4. Run `azd up`
+
+You can retrieve your OpenAI key by checking [your user page](https://platform.openai.com/account/api-keys) and your organization by navigating to [your organization page](https://platform.openai.com/account/org-settings).
+Learn more about creating an OpenAI free trial at [this link](https://openai.com/pricing).
+Do *not* check your key into source control.
+
+When you run `azd up` after and are prompted to select a value for `openAiResourceGroupLocation`, you can select any location as it will not be used.
 
 
+#### Existing Azure AI Search resource
 
-**Performance**:  
+1. Run `azd env set AZURE_SEARCH_SERVICE {Name of existing Azure AI Search service}`
+1. Run `azd env set AZURE_SEARCH_SERVICE_RESOURCE_GROUP {Name of existing resource group with ACS service}`
+1. If that resource group is in a different location than the one you'll pick for the `azd up` step,
+  then run `azd env set AZURE_SEARCH_SERVICE_LOCATION {Location of existing service}`
+1. If the search service's SKU is not standard, then run `azd env set AZURE_SEARCH_SERVICE_SKU {Name of SKU}`. The free tier won't work as it doesn't support managed identity. If your existing search service is using the free tier, you will need to deploy a new service since [search SKUs cannot be changed](https://learn.microsoft.com/azure/search/search-sku-tier#tier-upgrade-or-downgrade). ([See other possible SKU values](https://learn.microsoft.com/azure/templates/microsoft.search/searchservices?pivots=deployment-language-bicep#sku))
+1. If you have an existing index that is set up with all the expected fields, then run `azd env set AZURE_SEARCH_INDEX {Name of existing index}`. Otherwise, the `azd up` command will create a new index.
 
-**Future Work**: In our future endeavors, we are dedicated to advancing the chatbot comprehensively. We aim to enrich its knowledge base by integrating more structured and diverse data sources. This strategic approach will substantially enhance the chatbot's performance and its ability to grasp complex manufacturing concepts. We aim to introduce multi-language support, breaking language barriers and broadening its accessibility. We also plan to implement a multi-modal approach, enabling seamless interaction with image and video data for a more immersive experience. We will extend our reach to mobile platforms, ensuring user-friendly accessibility across various devices. These combined efforts reflect our commitment to continuous improvement and innovation in the evolution of this invaluable tool.
+You can also customize the search service (new or existing) for non-English searches:
+
+1. To configure the language of the search query to a value other than "en-US", run `azd env set AZURE_SEARCH_QUERY_LANGUAGE {Name of query language}`. ([See other possible values](https://learn.microsoft.com/rest/api/searchservice/preview-api/search-documents#queryLanguage))
+1. To turn off the spell checker, run `azd env set AZURE_SEARCH_QUERY_SPELLER none`. Consult [this table](https://learn.microsoft.com/rest/api/searchservice/preview-api/search-documents#queryLanguage) to determine if spell checker is supported for your query language.
+1. To configure the name of the analyzer to use for a searchable text field to a value other than "en.microsoft", run `azd env set AZURE_SEARCH_ANALYZER_NAME {Name of analyzer name}`. ([See other possible values](https://learn.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet-legacy&viewFallbackFrom=azure-dotnet))
+
+#### Other existing Azure resources
+
+You can also use existing Azure AI Document Intelligence and Storage Accounts. See `./infra/main.parameters.json` for list of environment variables to pass to `azd env set` to configure those existing resources.
+
+## Running locally
+
+You can only run locally **after** having successfully run the `azd up` command. If you haven't yet, follow the steps in [Azure deployment](#azure-deployment) above.
+
+1. Run `azd auth login`
+2. Change dir to `app`
+3. Run `./start.ps1` or `./start.sh` or run the "VS Code Task: Start App" to start the project locally.
+
+## Using the app
+
+* In Azure: navigate to the Azure WebApp deployed by azd. The URL is printed out when azd completes (as "Endpoint"), or you can find it in the Azure portal.
+* Running locally: navigate to 127.0.0.1:50505
+
+## Clean up
+
+To clean up all the resources created by this sample:
+
+1. Run `azd down`
+2. When asked if you are sure you want to continue, enter `y`
+3. When asked if you want to permanently delete the resources, enter `y`
+
+The resource group and all the resources will be deleted.
+
+For additional help and troubleshooting, visit [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo). 
