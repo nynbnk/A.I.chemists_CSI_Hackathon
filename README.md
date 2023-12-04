@@ -4,7 +4,7 @@
 
 **Team members**: Tanvir Ahmed (tanvir@uwm.edu), Nayan Banik (nbanik@uwm.edu), Md Tanzil Shahria (mshahria@uwm.edu), and Anisha Tasnim (tasnim@uwm.edu) 
 
-Project details are provided in the [Project documentation](Documentation.md).
+Project details are provided in the [Project documentation](assets/Documentation_AIchemists.pdf).
 
 The deployed applications can be viewed on [UWM CSI Chat Engine (GPT-4-turbo-updated-dataset) ](https://tinyurl.com/gpt4bot) and [UWM CSI Chat Engine (GPT-3.5-turbo-updated-dataset) ](https://tinyurl.com/gpt35bot).
 
