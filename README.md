@@ -14,7 +14,7 @@ The code is based on [azure-search-openai-demo](https://github.com/Azure-Samples
 
 ** Instructions to run the project files **
 
-## Azure account requirements
+## Azure account requirements:
 
 **IMPORTANT:** In order to deploy and run this project, you'll need:
 
@@ -24,7 +24,7 @@ The code is based on [azure-search-openai-demo](https://github.com/Azure-Samples
   * Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [Role Based Access Control Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview), [User Access Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator), or [Owner](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#owner). If you don't have subscription-level permissions, you must be granted [RBAC](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview) for an existing resource group and [deploy to that existing group](#existing-resource-group).
   * Your Azure account also needs `Microsoft.Resources/deployments/write` permissions on the subscription level.
 
-## Azure deployment
+## Azure deployment:
 
 ### Cost estimation
 
