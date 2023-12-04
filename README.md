@@ -35,7 +35,7 @@ Furthermore, this project exemplifies the transformative potential of artificial
 
 **System Architecture**: The architecture supports real-time interactions, minimizing latency between query input and response output. Azure AI Search and OpenAI are seamlessly integrated, ensuring a smooth data flow and consistent performance. The chatbot offers a ChatGPT-style interaction, maintaining a natural, engaging conversation flow, with features to track source content and evaluate the trustworthiness of responses. The following diagram is adapted from [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) illustrates the interaction between the user queries, Azure AI Search, OpenAI's response generation, and the chat interface. ![System Architecture ](docs/appcomponents.png)
 
-**Data Preprocessing Steps**: The data preprocessing involves several steps to ensure the chatbot can efficiently process and retrieve information from the provided PDF documents:
+**Data Preprocessing Steps**: The data preprocessing involves several steps to ensure the chatbot can efficiently process and retrieve information from the provided PDF documents. The following diagram adapted from [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) illustrates the preprocessing pipelines. ![Preprocessing](docs/diagram_prepdocs.png)
 
 **Document Upload and Indexing**: PDFs are uploaded to Azure Blob Storage and indexed for easy retrieval.
 
