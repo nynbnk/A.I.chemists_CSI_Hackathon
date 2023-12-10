@@ -1,4 +1,4 @@
-# CSI Hackathon (Theme 2: Generative & Natural Language) 
+# Our team won the first prize :) Details here: https://tinyurl.com/aichemistswinner
 
 **Team Name**: A.I.chemists 
 
@@ -6,9 +6,7 @@
 
 Project details are provided in the [Project documentation](assets/Documentation_AIchemists.pdf).
 
-The deployed applications can be viewed on [UWM CSI Chat Engine (GPT-4-turbo-updated-dataset) ](https://tinyurl.com/gpt4bot) and [UWM CSI Chat Engine (GPT-3.5-turbo-updated-dataset) ](https://tinyurl.com/gpt35bot).
-
-!['App homepage'](assets/homepage.png)
+The deployed applications can be viewed on [UWM CSI Chat Engine (GPT-4-turbo-updated-dataset) ](https://tinyurl.com/gpt4bot).
 
 The code is based on [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo). 
 
