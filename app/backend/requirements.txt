@@ -18,7 +18,7 @@ attrs==23.1.0
     # via aiohttp
 azure-common==1.1.28
     # via azure-search-documents
-azure-core==1.29.5
+azure-core==1.29.6
     # via
     #   azure-core-tracing-opentelemetry
     #   azure-identity
@@ -31,7 +31,7 @@ azure-core-tracing-opentelemetry==1.0.0b11
     # via azure-monitor-opentelemetry
 azure-identity==1.15.0
     # via -r requirements.in
-azure-monitor-opentelemetry==1.1.0
+azure-monitor-opentelemetry==1.1.1
     # via -r requirements.in
 azure-monitor-opentelemetry-exporter==1.0.0b19
     # via azure-monitor-opentelemetry
@@ -66,11 +66,11 @@ deprecated==1.2.14
     # via opentelemetry-api
 et-xmlfile==1.1.0
     # via openpyxl
-fixedint==0.1.6
+fixedint==0.2.0
     # via azure-monitor-opentelemetry-exporter
 flask==3.0.0
     # via quart
-frozenlist==1.4.0
+frozenlist==1.4.1
     # via
     #   aiohttp
     #   aiosignal
@@ -91,7 +91,7 @@ idna==3.6
     # via
     #   requests
     #   yarl
-importlib-metadata==6.8.0
+importlib-metadata==7.0.0
     # via opentelemetry-api
 isodate==0.6.1
     # via
@@ -111,12 +111,12 @@ markupsafe==2.1.3
     #   jinja2
     #   quart
     #   werkzeug
-msal==1.25.0
+msal==1.26.0
     # via
     #   -r requirements.in
     #   azure-identity
     #   msal-extensions
-msal-extensions==1.0.0
+msal-extensions==1.1.0
     # via
     #   -r requirements.in
     #   azure-identity
@@ -137,7 +137,7 @@ openai[datalib]==0.28.1
     # via -r requirements.in
 openpyxl==3.1.2
     # via openai
-opentelemetry-api==1.21.0
+opentelemetry-api==1.22.0
     # via
     #   azure-core-tracing-opentelemetry
     #   azure-monitor-opentelemetry-exporter
@@ -154,7 +154,7 @@ opentelemetry-api==1.21.0
     #   opentelemetry-instrumentation-urllib3
     #   opentelemetry-instrumentation-wsgi
     #   opentelemetry-sdk
-opentelemetry-instrumentation==0.42b0
+opentelemetry-instrumentation==0.43b0
     # via
     #   opentelemetry-instrumentation-aiohttp-client
     #   opentelemetry-instrumentation-asgi
@@ -167,7 +167,7 @@ opentelemetry-instrumentation==0.42b0
     #   opentelemetry-instrumentation-urllib
     #   opentelemetry-instrumentation-urllib3
     #   opentelemetry-instrumentation-wsgi
-opentelemetry-instrumentation-aiohttp-client==0.42b0
+opentelemetry-instrumentation-aiohttp-client==0.43b0
     # via -r requirements.in
 opentelemetry-instrumentation-asgi==0.42b0
     # via
@@ -197,11 +197,11 @@ opentelemetry-instrumentation-wsgi==0.42b0
     #   opentelemetry-instrumentation-flask
 opentelemetry-resource-detector-azure==0.1.0
     # via azure-monitor-opentelemetry
-opentelemetry-sdk==1.21.0
+opentelemetry-sdk==1.22.0
     # via
     #   azure-monitor-opentelemetry-exporter
     #   opentelemetry-resource-detector-azure
-opentelemetry-semantic-conventions==0.42b0
+opentelemetry-semantic-conventions==0.43b0
     # via
     #   opentelemetry-instrumentation-aiohttp-client
     #   opentelemetry-instrumentation-asgi
@@ -227,9 +227,9 @@ opentelemetry-util-http==0.42b0
     #   opentelemetry-instrumentation-wsgi
 packaging==23.2
     # via opentelemetry-instrumentation-flask
-pandas==2.1.3
+pandas==2.1.4
     # via openai
-pandas-stubs==2.1.1.230928
+pandas-stubs==2.1.4.231218
     # via openai
 portalocker==2.8.2
     # via msal-extensions
@@ -266,13 +266,13 @@ six==1.16.0
     #   azure-core
     #   isodate
     #   python-dateutil
-tiktoken==0.5.1
+tiktoken==0.5.2
     # via -r requirements.in
 tqdm==4.66.1
     # via openai
 types-pytz==2023.3.1.1
     # via pandas-stubs
-typing-extensions==4.8.0
+typing-extensions==4.9.0
     # via
     #   azure-core
     #   azure-storage-blob
@@ -296,7 +296,7 @@ wrapt==1.16.0
     #   opentelemetry-instrumentation-urllib3
 wsproto==1.2.0
     # via hypercorn
-yarl==1.9.3
+yarl==1.9.4
     # via aiohttp
 zipp==3.17.0
     # via importlib-metadata
